@@ -19,6 +19,7 @@ RUN mv /unmined-build/unmined*/* /unmined/
 
 RUN touch /var/log/cron.log
 COPY ./genmap.sh /unmined/genmap.sh
+RUN chmod +x /unmined/genmap.sh
 RUN echo "*/5 * * * * /unmined/genmap.sh >> /var/log/cron.log 2>&1" > /etc/cron.d/genmap
 RUN chmod 0644 /etc/cron.d/genmap
 RUN crontab /etc/cron.d/genmap
