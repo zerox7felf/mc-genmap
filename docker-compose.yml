@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mc-mapgen:
+    image: mc-mapgen
+    container_name: mc-mapgen
+    volumes:
+      - "${MAPLOCATION}:/mc:z"
+      - webcont:/webcont
+  mc-mapgen-lighttpd:
+    image: docker.io/jitesoft/lighttpd
+    container_name: mc-mapgen-lighttpd
+    volumes:
+      - webcont:/webcont
+    environment:
+      PORT: 8888
+      SERVER_NAME: localhost
+      SERVER_ROOT: /webcont
+    ports:
+      - "8888:8888"
+volumes:
+  webcont:
