@@ -1,0 +1,73 @@
+:root {
+    --nav-height: 6vh;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.tabs {
+    height: 100%;
+}
+
+.tabs section {
+    display: none;
+    height: 100%;
+    height: calc(100% - var(--nav-height));
+}
+
+.tabs section iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.tabs section img {
+    height: 100%;
+}
+
+.tabs nav {
+    height: var(--nav-height);
+    overflow: hidden;
+    background: #3333aa;
+    color: white;
+    font-family: sans-serif;
+}
+
+.tabs nav a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    text-align: center;
+    line-height: var(--nav-height);
+    float: left;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.tabs nav a:first-child {
+    border-right: 1px solid #ccc;
+}
+
+.tabs nav a img {
+    height: 50%;
+    position: relative;
+    top: 12.5%;
+    margin-right: 5px;
+}
+
+/* Show tab when its anchor is targeted */
+.tabs section:target {
+    display: flex;
+    justify-content: center;
+}
+
+/* Highlight the active tab link */
+.tabs nav a.active {
+    background-color: #5555ff;
+}

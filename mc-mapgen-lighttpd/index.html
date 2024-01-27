@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body onload="setup()">
+        <script>
+            function setup() {
+                Array.from(document.querySelectorAll("nav a"))
+                    .forEach(a =>
+                        a.addEventListener("click", it => {
+                            Array.from(document.querySelectorAll("nav a.active"))
+                                .forEach(a =>
+                                    a.classList.toggle("active")
+                                );
+                            it.target.classList.toggle("active")
+                        })
+                    )
+            }
+        </script>
+        <div class="tabs">
+            <!-- Tabs -->
+            <nav>
+                <a href="#unmined" class="active"><img src="/2d.png">2d Map</a>
+                <a href="#mcmap"><img src="/3d.png">3d Map</a>
+            </nav>
+
+            <!-- Tab content -->
+            <section id="unmined">
+                <iframe src="/webcont/unmined/unmined.index.html"></iframe>
+            </section>
+            <section id="mcmap">
+                <img src="/webcont/mcmap/output.png">
+            </section>
+        </div>
+    </body>
+</html>
